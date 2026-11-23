@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Compare Laptops | LaptopFinder</title>
+
+    <link href="./src/style/output.css" rel="stylesheet" />
+  </head>
+
+  <body
+    class="bg-background text-heading dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300"
+  >
+    <!-- Navbar -->
+    <header
+      class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700"
+    >
+      <nav
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <a href="index.html" class="text-2xl font-bold text-primary">
+          LaptopFinder
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            href="index.html"
+            class="text-slate-600 dark:text-slate-300 hover:text-primary"
+          >
+            Home
+          </a>
+
+          <a
+            href="laptops.html"
+            class="text-slate-600 dark:text-slate-300 hover:text-primary"
+          >
+            Laptops
+          </a>
+
+          <a
+            href="favorites.html"
+            class="text-slate-600 dark:text-slate-300 hover:text-primary"
+          >
+            Favorites
+          </a>
+
+          <a href="compare.html" class="text-primary font-semibold">
+            Compare
+          </a>
+        </div>
+
+        <button
+          id="themeToggle"
+          class="border border-slate-200 dark:border-slate-600 dark:bg-slate-700 rounded-xl px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600"
+        >
+          🌙
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
+      <!-- Page Header -->
+      <div class="mb-10">
+        <p class="text-primary font-semibold mb-2">MAKE THE RIGHT CHOICE</p>
+
+        <h1 class="text-3xl md:text-4xl font-bold mb-3">Compare Laptops</h1>
+
+        <p class="text-muted dark:text-slate-400">
+          Compare specifications and find the laptop that suits your needs.
+        </p>
+      </div>
+
+      <!-- Comparison Info -->
+      <div
+        class="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-900 rounded-2xl p-5 mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+      >
+        <div>
+          <h2 class="font-bold text-green-800 dark:text-green-400">
+            Compare Your Devices
+          </h2>
+
+          <p class="text-sm text-green-700 dark:text-green-300">
+            Select between 2 and 4 laptops to compare.
+          </p>
+        </div>
+
+        <span
+          id="compareCount"
+          class="bg-white dark:bg-slate-800 text-primary font-bold px-4 py-2 rounded-xl"
+        >
+          0 / 4 Selected
+        </span>
+      </div>
+
+      <!-- Comparison Table -->
+      <section
+        id="comparisonSection"
+        class="hidden bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-x-auto"
+      >
+        <table id="comparisonTable" class="w-full min-w-175 text-left">
+          <!-- Laptop Names -->
+          <thead
+            id="compareHead"
+            class="bg-slate-50 dark:bg-slate-700/50"
+          ></thead>
+
+          <!-- Specifications -->
+          <tbody id="compareBody"></tbody>
+        </table>
+      </section>
+
+      <!-- Best Value Legend -->
+      <div
+        id="bestValueLegend"
+        class="hidden flex items-center gap-2 mt-5 text-sm text-muted dark:text-slate-400"
+      >
+        <span class="w-4 h-4 rounded bg-green-100 dark:bg-green-900/40"></span>
+
+        <span> Best Value ★ </span>
+      </div>
+
+      <!-- Empty State -->
+      <div id="emptyCompare" class="hidden text-center py-20">
+        <div class="text-6xl mb-5">⚖️</div>
+
+        <h2 class="text-2xl font-bold mb-3">No Laptops to Compare</h2>
+
+        <p class="text-muted dark:text-slate-400 mb-7">
+          Add laptops to your comparison list to see their differences.
+        </p>
+
+        <a href="laptops.html" class="btn-action"> Explore Laptops </a>
+      </div>
+
+      <!-- Clear Comparison -->
+      <div id="clearCompareContainer" class="hidden flex justify-end mt-8">
+        <button
+          id="clearCompare"
+          class="border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 px-5 py-3 rounded-xl font-semibold hover:bg-red-50 dark:hover:bg-red-950/30 transition"
+        >
+          Clear Comparison
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 mt-20"
+    >
+      <div class="max-w-7xl mx-auto px-6 py-8 text-center">
+        <p class="text-muted dark:text-slate-400">
+          © 2026 LaptopFinder. Find the perfect laptop for you.
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="./src/js/compare.js"></script>
+  </body>
+</html>

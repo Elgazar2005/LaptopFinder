@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Explore Laptops | Laptop Finder</title>
+
+    <link rel="stylesheet" href="./src/style/output.css" />
+  </head>
+
+  <body
+    class="bg-background text-heading dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300"
+  >
+    <!-- Header -->
+    <header
+      class="bg-white border-b border-slate-200 dark:bg-slate-800 dark:border-slate-700 transition-colors duration-300"
+    >
+      <nav
+        class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between"
+      >
+        <a href="index.html" class="text-2xl font-bold">
+          Laptop<span class="text-primary">Finder.</span>
+        </a>
+
+        <div
+          class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300"
+        >
+          <a href="index.html" class="hover:text-primary">Home</a>
+          <a href="laptops.html" class="text-primary">Laptops</a>
+          <a href="favorites.html" class="hover:text-primary">Favorites</a>
+          <a href="compare.html" class="hover:text-primary">Compare</a>
+        </div>
+
+        <button
+          id="themeToggle"
+          class="rounded-full border border-slate-200 dark:border-slate-600 dark:bg-slate-700 p-3 transition-colors duration-300"
+          aria-label="Toggle theme"
+        >
+          🌙
+        </button>
+      </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+      <!-- Page Heading -->
+      <section class="mb-10">
+        <p class="text-primary font-semibold text-sm">FIND YOUR DEVICE</p>
+
+        <h1 class="text-4xl font-bold mt-2">Explore Laptops</h1>
+
+        <p class="text-slate-500 dark:text-slate-400 mt-3">
+          Discover the perfect laptop for your needs and budget.
+        </p>
+      </section>
+
+      <!-- Search -->
+      <section class="mb-8">
+        <div>
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search by laptop name or brand..."
+            class="w-full rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-heading dark:text-white placeholder:text-slate-400 py-4 px-5 focus:border-primary focus:ring-primary"
+          />
+        </div>
+      </section>
+
+      <!-- Filters and Laptops -->
+      <section class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <!-- Filters -->
+        <form
+          class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 h-fit transition-colors duration-300"
+        >
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold">Filters</h2>
+
+            <button
+              id="clearFilters"
+              type="reset"
+              class="text-primary text-sm font-semibold"
+            >
+              Clear All
+            </button>
+          </div>
+
+          <div class="mb-7">
+            <h3 class="font-semibold mb-3">Category</h3>
+
+            <select
+              id="categoryFilter"
+              class="w-full rounded-lg border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-heading dark:text-white"
+            >
+              <option value="all">All Categories</option>
+              <option value="ultrabook">Ultrabook</option>
+              <option value="gaming">Gaming</option>
+              <option value="2-in-1">2-in-1</option>
+              <option value="creator">Creator</option>
+              <option value="budget">Budget</option>
+            </select>
+          </div>
+
+          <div class="mb-7">
+            <h3 class="font-semibold mb-3">Maximum Price</h3>
+
+            <input
+              type="number"
+              id="maxPriceFilter"
+              placeholder="Enter maximum price"
+              min="0"
+              class="w-full rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-heading dark:text-white placeholder:text-slate-400"
+            />
+          </div>
+
+          <div class="mb-7">
+            <h3 class="font-semibold mb-3">Minimum RAM</h3>
+
+            <select
+              id="ramFilter"
+              class="w-full rounded-lg border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-heading dark:text-white"
+            >
+              <option value="0">Any RAM</option>
+              <option value="8">8 GB</option>
+              <option value="16">16 GB</option>
+              <option value="32">32 GB</option>
+            </select>
+          </div>
+
+          <div class="mb-7">
+            <h3 class="font-semibold mb-3">Minimum Battery Life</h3>
+
+            <select
+              id="batteryFilter"
+              class="w-full rounded-lg border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-heading dark:text-white"
+            >
+              <option value="0">Any Battery</option>
+              <option value="6">6+ Hours</option>
+              <option value="8">8+ Hours</option>
+              <option value="10">10+ Hours</option>
+              <option value="15">15+ Hours</option>
+            </select>
+          </div>
+
+          <button id="applyFilters" class="btn-action w-full" type="button">
+            Apply Filters
+          </button>
+        </form>
+
+        <!-- Laptop Results -->
+        <div class="lg:col-span-3">
+          <div
+            class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-6"
+          >
+            <p class="text-slate-500 dark:text-slate-400">
+              Showing
+              <span
+                id="resultCount"
+                class="font-bold text-heading dark:text-white"
+                >20</span
+              >
+              Laptops
+            </p>
+
+            <select
+              id="sortSelect"
+              class="rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-heading dark:text-white"
+            >
+              <option value="default">Sort By: Default</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="battery-high">Battery: High to Low</option>
+              <option value="battery-low">Battery: Low to High</option>
+              <option value="weight-low">Weight: Low to High</option>
+              <option value="weight-high">Weight: High to Low</option>
+            </select>
+          </div>
+
+          <!-- Loading Skeleton -->
+          <div
+            id="loadingSkeleton"
+            class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"
+          >
+            <div class="laptop-card animate-pulse">
+              <div class="h-40 bg-slate-200 dark:bg-slate-700 rounded-xl"></div>
+              <div
+                class="h-4 bg-slate-200 dark:bg-slate-700 rounded mt-5 w-1/2"
+              ></div>
+              <div
+                class="h-5 bg-slate-200 dark:bg-slate-700 rounded mt-3 w-3/4"
+              ></div>
+              <div
+                class="h-4 bg-slate-200 dark:bg-slate-700 rounded mt-4 w-1/3"
+              ></div>
+            </div>
+
+            <div class="laptop-card animate-pulse">
+              <div class="h-40 bg-slate-200 dark:bg-slate-700 rounded-xl"></div>
+              <div
+                class="h-4 bg-slate-200 dark:bg-slate-700 rounded mt-5 w-1/2"
+              ></div>
+              <div
+                class="h-5 bg-slate-200 dark:bg-slate-700 rounded mt-3 w-3/4"
+              ></div>
+              <div
+                class="h-4 bg-slate-200 dark:bg-slate-700 rounded mt-4 w-1/3"
+              ></div>
+            </div>
+
+            <div class="laptop-card animate-pulse">
+              <div class="h-40 bg-slate-200 dark:bg-slate-700 rounded-xl"></div>
+              <div
+                class="h-4 bg-slate-200 dark:bg-slate-700 rounded mt-5 w-1/2"
+              ></div>
+              <div
+                class="h-5 bg-slate-200 dark:bg-slate-700 rounded mt-3 w-3/4"
+              ></div>
+              <div
+                class="h-4 bg-slate-200 dark:bg-slate-700 rounded mt-4 w-1/3"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Error Message -->
+          <p id="errorMessage" class="hidden text-red-500 py-6"></p>
+
+          <!-- Laptops Container -->
+          <div
+            id="laptopsContainer"
+            class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"
+          ></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 mt-16 py-8 transition-colors duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 text-center text-slate-500 dark:text-slate-400"
+      >
+        © 2026 LaptopFinder. Built for students.
+      </div>
+    </footer>
+
+    <script type="module" src="./src/js/laptops.js"></script>
+  </body>
+</html>
